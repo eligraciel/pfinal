@@ -8,20 +8,21 @@ export const SeriesDetails = () => {
 	const history = useHistory();
 
 	useEffect(() => {
-		actions.getSeries(series_id);
-		actions.getSeriesCharacters(series_id);
-		actions.getSeriesEvents(series_id);
-		actions.getSeriesComics(series_id);
-		actions.getSeriesStories(series_id);
+		actions.getSerieByMaxter(series_id);
+		actions.getSerieCharacters(series_id);
+		actions.getSerieComics(series_id);
+		actions.getSerieCreators(series_id)
+		actions.getSerieEvents(series_id);
+		actions.getSerieStories(series_id);
 	}, []);
 	return (
 		<>
 			<div className="container">
-				<h1>Series Details {store.series.title}</h1>
+				<h1>Series Details: {store.seriesByMaxter.title}</h1>
 				<h2>Characters:</h2>
 				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
-					{store.series.length > 0 &&
-						store.series.map(per => {
+					{store.charactersByMaxter.length > 0 &&
+						store.charactersByMaxter.map(per => {
 							return (
 								<div
 									key={per.id}
@@ -47,8 +48,8 @@ export const SeriesDetails = () => {
 				</div>
 				<h2>Comics: </h2>
 				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
-					{store.comics.length > 0 &&
-						store.comics.map(per => {
+					{store.comicsByMaxter.length > 0 &&
+						store.comicsByMaxter.map(per => {
 							return (
 								<div
 									key={per.id}
@@ -74,8 +75,8 @@ export const SeriesDetails = () => {
 				</div>
 				<h2>Events: </h2>
 				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
-					{store.events.length > 0 &&
-						store.events.map(per => {
+					{store.eventsByMaxter.length > 0 &&
+						store.eventsByMaxter.map(per => {
 							return (
 								<div
 									key={per.id}
