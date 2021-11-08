@@ -100,14 +100,16 @@ export const CharactersDetails = () => {
 						})}
 				</div>
 
-				<button className="btn btn-warning mb-3" onClick={history.goBack}>
-					Return
-				</button>
+
 
 				<h2>Historias: </h2>
 				{store.stories.map(per => {
 					return <h6 key={per.id}>{per.title}</h6>;
 				})}
+
+				<button className="btn btn-warning mb-3" onClick={history.goBack}>
+					Return
+				</button>
 			</div>
 		</>
 	);

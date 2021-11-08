@@ -7,3 +7,15 @@
 .paginas:hover{
     background-color: red
 }
+
+#card:hover{
+    background-color: red;
+    transition:all .5s ease-in-out;
+    -webkit-transform:scale(1.1);transform:scale(1.1);
+
+}
+
+.card{
+    background-color: black;
+    overflow:hidden;
+}
