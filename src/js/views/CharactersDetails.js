@@ -20,7 +20,7 @@ export const CharactersDetails = () => {
 				<h1>Characters Details</h1>
 				<h2>Series:</h2>
 				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
-					{store.series.length > 0 &&
+					{store.series.length > 0 ?
 						store.series.map(per => {
 							return (
 								<div
@@ -43,11 +43,11 @@ export const CharactersDetails = () => {
 									</div>
 								</div>
 							);
-						})}
+						}):<h3 className="d-block">For this character there are no series</h3>}
 				</div>
 				<h2>Comics: </h2>
 				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
-					{store.comics.length > 0 &&
+					{store.comics.length > 0 ?
 						store.comics.map(per => {
 							return (
 								<div
@@ -70,11 +70,11 @@ export const CharactersDetails = () => {
 									</div>
 								</div>
 							);
-						})}
+						}):<h3 className="d-block">For this character there are no comics</h3>}
 				</div>
 				<h2>Events: </h2>
 				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
-					{store.events.length > 0 &&
+					{store.events.length > 0 ?
 						store.events.map(per => {
 							return (
 								<div
@@ -97,15 +97,30 @@ export const CharactersDetails = () => {
 									</div>
 								</div>
 							);
-						})}
+						}):<h3 className="d-block">For this character there are no events</h3>}
 				</div>
 
 
 
 				<h2>Historias: </h2>
-				{store.stories.map(per => {
-					return <h6 key={per.id}>{per.title}</h6>;
-				})}
+				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
+				{store.stories.length > 0 ?
+				store.stories.map(per => {
+					return (
+						<div
+							key={per.id}
+							className="card m-2 bg-dark"
+							style={{ width: "300px", border: "2px solid black" }}>
+							
+							<div className="card-body">
+								<h2 className="card-title fs-4 text-center text-white">{per.title}</h2>
+								<h2 className="card-title fs-6 text-center text-white">{per.type}</h2>
+								<p>{per.description}</p>
+							</div>                               
+						</div>
+					);
+				}):<h3 className="d-block">For this character there are no history</h3>}
+				</div>
 
 				<button className="btn btn-warning mb-3" onClick={history.goBack}>
 					Return
