@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import "../home.css"
 
 export const Series = () => {
 	const { store, actions } = useContext(Context);
 	const [text, setText] = useState('');
 	const [data, setData] = useState([]);
-	console.log(store.series);
+	console.log(store.seriesByMaxter);
 
 	const handleChange = (valor) => {
 
@@ -36,19 +37,20 @@ export const Series = () => {
 			<div className="container">
 				<h1>Series</h1>
 				<div className="row row-cols-1 row-cols-md-3 flex-wrap mb-3">
-					{store.series.map(ser => {
+					{store.seriesByMaxter.map(ser => {
 						return (
 							<div key={ser.id} className="col-lg-3 col-md-4 col-sm-4 col-6">
 								<div i className="card bg-dark my-4" style={{ height: "auto" }}>
 									<img
-										className="card bg-dark m-2 overflow-auto"
+										className="card bg-dark  overflow-auto"
+										style={{ height: "auto", borderBottom: "4px solid red" }}
 										src={`${ser.thumbnail.path}.${ser.thumbnail.extension}`}
 										alt="Card image cap"
 									/>
 									<div className="card-body">
 										<h5 className="card-title text-white">{ser.title}</h5>
-										<p className="card-text text-white">{ser.description} </p>
-										<Link to={`/series/${ser.id}`} className="btn btn-primary">
+										<p id="cardtextbox" className="card-text text-white" style={{ height: "50px", overflow: "hidden" }}>{ser.description}</p>
+										<Link to={`/series/${ser.id}`} className="btn btn-warning">
 											More About
 										</Link>
 									</div>
@@ -62,7 +64,7 @@ export const Series = () => {
 					<form>
 						<input value={text} onChange={(e) => handleChange(e.target.value)} type="text" className="form-control" placeholder="Find a Character"></input>
 					</form>
-					<div style={{height:"10px"}}></div>
+					<div style={{ height: "10px" }}></div>
 					<div className="row">
 						{data.map(dat => {
 							return (
@@ -75,7 +77,7 @@ export const Series = () => {
 											alt="Card image cap"
 										/>
 										<div className="card-body">
-											<h5 className="card-title text-white fs-6">{dat.name}</h5>
+											<h5 className="card-title text-white fs-6">{dat.title}</h5>
 											<Link to={`/series/${dat.id}`} className="btn btn-warning">
 												Go Details
 											</Link>

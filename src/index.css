@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+
+
 .paginas:hover{
     background-color: red
 }
@@ -19,3 +21,4 @@
     background-color: black;
     overflow:hidden;
 }
+

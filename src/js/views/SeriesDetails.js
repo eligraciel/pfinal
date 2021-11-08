@@ -42,7 +42,7 @@ export const SeriesDetails = () => {
 									<div className="card-body">
 										<h2 className="card-title fs-6 text-center text-white">{per.name}</h2>
 									</div>
-									<Link to={`/characters/${per.id}`} className="btn btn-primary" style={{
+									<Link to={`/characters/${per.id}`} className="btn btn-warning" style={{
 											margin: "0 0 20px 0"}}>
 											More About
 									</Link>
@@ -73,7 +73,7 @@ export const SeriesDetails = () => {
 									<div className="card-body">
 										<h2 className="card-title fs-6 text-center text-white">{per.title}</h2>
 									</div>
-									<Link to={`/comicview/${per.id}`} className="btn btn-primary" style={{
+									<Link to={`/comicview/${per.id}`} className="btn btn-warning" style={{
 											margin: "0 0 20px 0"}}>
 											More About
 									</Link>
@@ -104,7 +104,7 @@ export const SeriesDetails = () => {
 									<div className="card-body">
 										<h2 className="card-title fs-6 text-center text-white">{per.fullName}</h2>
 									</div>
-									<Link to={`/creators/${per.id}`} className="btn btn-primary" style={{
+									<Link to={`/creators/${per.id}`} className="btn btn-warning" style={{
 											margin: "0 0 20px 0"}}>
 											More About
 									</Link>
@@ -140,10 +140,25 @@ export const SeriesDetails = () => {
 						})}
 				</div>
 				<h2>Stories: </h2>
-				{store.storiesByMaxter.map(per => {
-					return <h6 key={per.id}>{per.title}</h6>;
-				})}
-
+				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
+				{store.storiesByMaxter.length > 0 ?
+				store.storiesByMaxter.map(per => {
+					return (
+						<div
+							key={per.id}
+							className="card m-2 bg-dark"
+							style={{ width: "300px", border: "2px solid black" }}>
+							
+							<div className="card-body">
+								<h2 className="card-title fs-4 text-center text-white">{per.title}</h2>
+								<h2 className="card-title fs-6 text-center text-white">{per.type}</h2>
+								<p>{per.description}</p>
+							</div>                               
+						</div>
+					);
+				}):<h3 className="d-block">For this character there are no history</h3>}
+				</div>
+				
 				<button className="btn btn-warning mb-3" onClick={history.goBack}>
 					Return
 				</button>

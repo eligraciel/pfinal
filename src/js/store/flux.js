@@ -262,7 +262,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => {
 						console.log(data.data.results);
-						setStore({ series: data.data.results });
+						setStore({ seriesByMaxter: data.data.results });
 					})
 					.catch(error => console.log(error));
 			},

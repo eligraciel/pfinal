@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../home.css"
 
 export const Home = () => (
 	<div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">

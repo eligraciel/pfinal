@@ -62,6 +62,7 @@ export const Characters = () => {
 			  <form>
 				  <input value={text} onChange={(e)=>handleChange(e.target.value)} type="text" className="form-control" placeholder="Find a Character"></input>
 			  </form>
+			  <div style={{ height: "10px" }}></div>
 			  <div className="row">
 					{data.map(dat => {
 						return (
