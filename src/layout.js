@@ -9,6 +9,7 @@ import { Comics } from "./js/views/ComicView";
 import { Creators } from "./js/views/Creators";
 import { CreatorDetails } from "./js/views/CreatorDetails";
 import { Series } from "./js/views/Series";
+import { SeriesDetails } from "./js/views/SeriesDetails";
 import injectContext from "./js/store/appContext";
 
 import { Navbar } from "./js/component/navbar";
@@ -46,6 +47,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/series">
 							<Series />
+						</Route>
+						<Route exact path="/series/:series_id">
+							<SeriesDetails />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
