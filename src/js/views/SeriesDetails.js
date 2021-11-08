@@ -18,7 +18,7 @@ export const SeriesDetails = () => {
 	return (
 		<>
 			<div className="container">
-				<h1>Series Details: {store.seriesByMaxter.title}</h1>
+				<h1>Series Details: {store.series.title}</h1>
 				<h2>Characters:</h2>
 				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
 					{store.charactersByMaxter.length > 0 &&
@@ -42,6 +42,10 @@ export const SeriesDetails = () => {
 									<div className="card-body">
 										<h2 className="card-title fs-6 text-center text-white">{per.name}</h2>
 									</div>
+									<Link to={`/characters/${per.id}`} className="btn btn-primary" style={{
+											margin: "0 0 20px 0"}}>
+											More About
+									</Link>
 								</div>
 							);
 						})}
@@ -69,6 +73,10 @@ export const SeriesDetails = () => {
 									<div className="card-body">
 										<h2 className="card-title fs-6 text-center text-white">{per.title}</h2>
 									</div>
+									<Link to={`/comicview/${per.id}`} className="btn btn-primary" style={{
+											margin: "0 0 20px 0"}}>
+											More About
+									</Link>
 								</div>
 							);
 						})}
@@ -96,6 +104,10 @@ export const SeriesDetails = () => {
 									<div className="card-body">
 										<h2 className="card-title fs-6 text-center text-white">{per.fullName}</h2>
 									</div>
+									<Link to={`/creators/${per.id}`} className="btn btn-primary" style={{
+											margin: "0 0 20px 0"}}>
+											More About
+									</Link>
 								</div>
 							);
 						})}
