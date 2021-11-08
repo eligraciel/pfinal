@@ -9,9 +9,9 @@ export const Navbar = () => {
 					<div className="col border-bottom ">
 						<Link to="/">
 							<img
-								style={{ width: "150px", height: "50px", display: "block", margin: "0 auto" }}
+								style={{ width: "150px", height: "60px", display: "block", margin: "0 auto", padding: "10px"}}
 								className="pb-2"
-								src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/2560px-Marvel_Logo.svg.png"
+								src="https://acegif.com/wp-content/gifs/gif-marvel-91.gif"
 							/>
 						</Link>
 					</div>
