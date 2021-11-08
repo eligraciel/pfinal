@@ -38,7 +38,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			seriesTv: [],
 			charactersByMaxter: [],
 			comicsByMaxter: [],
-			creadorsByMaxter: [],
+			creatorsByMaxter: [],
 			eventsByMaxter: [],
 			storiesByMaxter: [],
 
@@ -257,15 +257,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Seccion de Series By Maxter--------------------------------------------------------------------------------------------
 
-			getSeriesByMaxter: () => {
+			getSeries: () => {
 				fetch(getStore().url3)
 					.then(resp => resp.json())
 					.then(data => {
 						console.log(data.data.results);
-						setStore({ seriesByMaxter: data.data.results });
+						setStore({ series: data.data.results });
 					})
 					.catch(error => console.log(error));
 			},
+			
 			getSerieByMaxter: id => {
 				fetch(
 					`https://gateway.marvel.com/v1/public/series/${id}?ts=1&apikey=d5fa6ff9a3c0a73538e2ea2229a4b3e8&hash=a24cd1d9263d7ae351b842fa38b4ebd7`
@@ -282,7 +283,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log(error));
 			},
-			getSerieCharacter: id => {
+			getSerieCharacters: id => {
 				fetch(
 					`https://gateway.marvel.com/v1/public/series/${id}/characters?ts=1&apikey=d5fa6ff9a3c0a73538e2ea2229a4b3e8&hash=a24cd1d9263d7ae351b842fa38b4ebd7`
 				)
@@ -310,17 +311,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log(error));
 			},
-			getSerieCreator: id => {
+			getSerieCreators: id => {
 				fetch(
 					`https://gateway.marvel.com/v1/public/series/${id}/creators?ts=1&apikey=d5fa6ff9a3c0a73538e2ea2229a4b3e8&hash=a24cd1d9263d7ae351b842fa38b4ebd7`
 				)
 					.then(resp => resp.json())
 					.then(data => {
 						console.log("CreatorsByMaxter", data.data.results);
-						setStore({ creadorsByMaxter: data.data.results });
+						setStore({ creatorsByMaxter: data.data.results });
 						console.log(getStore().creatComics);
 						setStore({
-							seriesId: getStore().seriesId.concat(getStore().creadorsByMaxter)
+							seriesId: getStore().seriesId.concat(getStore().creatorsByMaxter)
 						});
 					})
 					.catch(error => console.log(error));
